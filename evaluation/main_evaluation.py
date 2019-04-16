@@ -79,7 +79,7 @@ def aggregate_ape_results(list_of_datasets, list_of_pipelines):
             pipeline_dir = os.path.join(dataset_dir, pipeline_name)
             # Get results.
             results_file = os.path.join(pipeline_dir, 'results.yaml')
-            stats[dataset_name][pipeline_name] = yaml.load(open(results_file, 'r'))
+            stats[dataset_name][pipeline_name] = yaml.load(open(results_file, 'r'), Loader=yaml.FullLoader)
             print("Check stats from " + results_file)
             checkStats(stats[dataset_name][pipeline_name])
 
@@ -567,7 +567,7 @@ def run_dataset(results_dir, params_dir, dataset_dir, dataset_properties, build_
                     raise Exception("\033[91mCannot plot boxplots: missing results for %s pipeline \
                                     and dataset: %s"                                                                                                        %(pipeline_type, dataset_name) + "\033[99m")
 
-                stats[pipeline_type]  = yaml.load(open(results,'r'))
+                stats[pipeline_type]  = yaml.load(open(results,'r'), Loader=yaml.FullLoader)
                 print("Check stats %s "%(pipeline_type) + results)
                 checkStats(stats[pipeline_type])
 
@@ -631,7 +631,7 @@ def check_and_create_regression_test_structure(regression_tests_path, param_name
             with open(vio_file, 'r') as infile:
                 # Skip first yaml line: it contains %YAML:... which can't be read...
                 _ = infile.readline()
-                vio_params = yaml.load(infile)
+                vio_params = yaml.load(infile, Loader=yaml.FullLoader)
                 for idx, param_name in enumerate(param_names):
                     if param_name in vio_params:
                         # Modify param_name with param_value
@@ -656,7 +656,7 @@ def check_and_create_regression_test_structure(regression_tests_path, param_name
             with open(tracker_file, 'r') as infile:
                 # Skip first yaml line: it contains %YAML:... which can't be read...
                 _ = infile.readline()
-                tracker_params = yaml.load(infile)
+                tracker_params = yaml.load(infile, Loader=yaml.FullLoader)
                 for idx, param_name in enumerate(param_names):
                     if param_name in tracker_params:
                         # Modify param_name with param_value
@@ -805,7 +805,7 @@ def regression_test_simple(test_name, param_names, param_values, only_compile_re
                 results_file = "{}/{}/{}/{}/{}/results.yaml".format(REGRESSION_TESTS_DIR, param_names_dir,
                                                                     param_value_dir, dataset_name, pipeline)
                 if os.path.isfile(results_file):
-                    stats[param_value_dir][pipeline] = yaml.load(open(results_file,'r'))
+                    stats[param_value_dir][pipeline] = yaml.load(open(results_file,'r'), Loader=yaml.FullLoader)
                 else:
                     print("Could not find results file: {}".format(results_file) + ". Adding cross to boxplot...")
                     stats[param_value_dir][pipeline] = False
@@ -825,7 +825,7 @@ def run(args):
     from evo.tools.settings import SETTINGS
 
     # Get experiment information from yaml file.
-    experiment_params = yaml.load(args.experiments_path)
+    experiment_params = yaml.load(args.experiments_path, Loader=yaml.FullLoader)
 
     results_dir = os.path.expandvars(experiment_params['results_dir'])
     params_dir = os.path.expandvars(experiment_params['params_dir'])
