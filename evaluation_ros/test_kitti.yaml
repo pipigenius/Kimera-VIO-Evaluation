@@ -1,4 +1,4 @@
-experiment_label: 'offline'
+experiment_label: 'kitti'
 
 settings:
   run_benchmark: true
@@ -9,10 +9,10 @@ params_dir: '/home/yunchang/catkin_ws/src/spark_vio_ros/params'
 results_dir: '/home/yunchang/spark_vio_evaluation/evaluation_ros/results'
 
 datasets_to_run:
- - name: V1_01_easy
-   segments: [10,20,30,40,50]
+ - name: 'KITTI0046'
+   segments: [1,2,3,4,5]
    pipelines: ['S']
    discard_n_start_poses: 0
    discard_n_end_poses: 0
    initial_frame: 0
-   final_frame: 2500
+   final_frame: 125

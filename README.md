@@ -17,6 +17,14 @@ For offline, or
 
 Then run 
 ```
-./evaluate.sh <path-to-desired-folder-to-save-in>
+./evaluate.sh euroc S <path-to-desired-folder-to-save-in>
+```
+
+Or for Kitti (WIP)
+```
+./evaluate_kitti.sh <datapath>/kitti_2011_09_26_drive_0046_unsynced.bag
+```
+```
+./evaluate.sh kitti S <path-to-desired-folder-to-save-in>
 ```
 To evaluate and generate plots. 

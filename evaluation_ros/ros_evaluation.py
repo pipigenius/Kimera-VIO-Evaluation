@@ -36,6 +36,5 @@ def run_ros(args):
 
 if __name__ == '__main__':
     parser = evaluation.parser()
-    args = parser.parse_args(['test_offline.yaml', '-a',
-                              '--save_results', '--save_plots', '--save_boxplots'])
+    args = parser.parse_args()
     run_ros(args)
