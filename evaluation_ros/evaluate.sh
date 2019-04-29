@@ -1,5 +1,5 @@
 if [[ $1 == "kitti" ]]; then
-	DATA=KITTI0046
+	DATA=KITTI0036
 	YAML_FILE="test_kitti.yaml"
 elif [[ $1 == "euroc" ]]; then
 	DATA=V1_01_easy
@@ -15,4 +15,4 @@ savepath=$3
 
 mv $PWD/results/$DATA/$PIPELINE/ $savepath
 
-# rm -rf $PWD/results
+rm -rf $PWD/results

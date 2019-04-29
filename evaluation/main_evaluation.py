@@ -16,13 +16,13 @@ Y_MAX_APE_TRANS={
     "MH_01_easy": 0.3, "MH_02_easy": 0.25, "MH_03_medium": 0.35,
     "mh_04_difficult": 0.5, "MH_05_difficult": 0.36, "V1_01_easy": 0.170,
     "V1_02_medium": 0.16, "V1_03_difficult": 0.4,"V2_01_easy": 0.175,
-    "V2_02_medium": 0.24,"v2_03_difficult": 0.7, "KITTI0046": 10.0
+    "V2_02_medium": 0.24,"v2_03_difficult": 0.7, "KITTI0046": 5.0, "KITTI0036": 50.0
     }
 Y_MAX_RPE_TRANS={
     "MH_01_easy": 0.028, "MH_02_easy": 0.025, "MH_03_medium": 0.091,
     "mh_04_difficult": 0.21, "MH_05_difficult": 0.07, "V1_01_easy": 0.03,
     "V1_02_medium": 0.04, "V1_03_difficult": 0.15,"V2_01_easy": 0.04,
-    "V2_02_medium": 0.06,"v2_03_difficult": 0.17, "KITTI0046": 10.0
+    "V2_02_medium": 0.06,"v2_03_difficult": 0.17, "KITTI0046": 5.0, "KITTI0036": 12.0
     }
 Y_MAX_RPE_ROT={
 "MH_01_easy":0.4,
@@ -36,7 +36,8 @@ Y_MAX_RPE_ROT={
 "V2_01_easy":0.6,
 "V2_02_medium":1.0,
 "V2_03_difficult":2.6,
-"KITTI0046": 10.0
+"KITTI0046": 10.0,
+"KITTI0036": 10.0
 }
 
 def move_output_from_to(from_dir, to_dir):
